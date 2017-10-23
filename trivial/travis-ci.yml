@@ -1,0 +1,35 @@
+# FIXME: rename it to .travis.yml
+---
+sudo: required
+language: python
+python: "2.7"
+
+services:
+  - docker
+
+env:
+  global:
+    - ANSIBLE_HOST_KEY_CHECKING="False"
+
+# Install python-pip
+addons:
+  apt:
+    packages:
+      - python-pip
+
+install:
+  # Install ansible
+  - pip install ansible docker-py
+
+  # Check ansible version
+  - ansible --version
+
+  # Install ansible role tests requirements
+  - ansible-galaxy install -r requirements.yml -p roles/
+
+script:
+  # Execute playbook
+  - ansible-playbook test.yml -i inventory
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

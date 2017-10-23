@@ -1,0 +1,6 @@
+# playbook.yml
+---
+- hosts: cattles
+  tasks:
+    - debug:
+        msg: "Hello my {{ ansible_host }}!"

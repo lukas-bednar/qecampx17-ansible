@@ -1,0 +1,6 @@
+# inventory
+localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python"
+
+[cattles]
+host1 image="chrismeyers/centos7"
+host2 image="registry.access.redhat.com/rhel:latest"

@@ -1,0 +1,4 @@
+# requirements.yml
+---
+- src: https://github.com/rhevm-qe-automation/provision_docker.git
+  name: provision_docker

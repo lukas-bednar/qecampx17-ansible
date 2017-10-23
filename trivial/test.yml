@@ -1,0 +1,10 @@
+# test.yml
+---
+- name: Provision docker containers
+  hosts: localhost
+  roles:
+    - role: provision_docker
+      provision_docker_inventory_group: "{{ groups['cattles'] }}"
+      provision_docker_use_docker_connection: true
+
+- include: playbook.yml
